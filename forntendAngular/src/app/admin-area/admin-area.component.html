@@ -1,0 +1,118 @@
+<table>
+<h1> Enter a new car type</h1>
+
+<div class ="parentDivOrder"> 
+
+    <div class="child"> Id Of Car <input type="number" min="5" #idOfCar1> </div>
+    <div class="child"> Manufacture Name  <input type="text" #ManufactureName1> </div>
+    <div class="child"> Car Model <input type="text" #carModel1> </div>
+    <div class="child"> Daily Cost <input type="number" min="0" #dailyCost1> </div>
+    <div class="child"> Daily Delay Cost <input type="number" min=dailyCost.value #dailyDelayCost1> </div>
+    <div class="child"> Year Of Production <input type="number" min="2015" #yearOfProduction1> </div>
+    <div class="child"> Gear <input type="text" #gearOfCar1 > </div>
+
+</div>
+
+<br>
+
+<div class="buttonCenter">
+<button (click)="postNewCarType(idOfCar1.value,ManufactureName1.value,carModel1.value,dailyCost1.value,dailyDelayCost1.value,yearOfProduction1.value,gearOfCar1.value)"> Add a new car type </button>
+</div>
+
+<h3>{{carTypeMessage}}</h3>
+
+<h1> Enter a new car fields for car type</h1>
+
+<div class ="parentDivOrder"> 
+
+    <div class="child"> Id Of Car <input type="number" #IdOfCar> </div>
+    <div class="child"> Id Of Field  <input type="number" #IdOfField> </div>
+    <div class="child"> Car Type <input type="text" #CarType> </div>
+    <div class="child"> Current Km <input type="number" min="0" #CurrentKm> </div>
+    <div class="child"> Picture - should be a URL <input type="url" #Pic> </div>
+    <div class="child"> Proper To Rent <input type="text" #ProperToRent> </div>
+    <div class="child"> Free For Rent <input type="text" #FreeForRent > </div>
+    <div class="child"> Car Number <input type="text" #CarNumber> </div>
+    <div class="child"> Branch Number <input type="text" #BranchNumber > </div>
+
+</div>
+
+<br>
+
+<div class="buttonCenter">
+    <button (click)="postNewCarField(IdOfCar.value,IdOfField.value,CarType.value,CurrentKm.value,Pic.value,ProperToRent.value,FreeForRent.value,CarNumber.value,BranchNumber.value)"> Add a new car fields </button>
+    </div>
+
+    <h3>{{carFiledMessage}}</h3>
+
+</table>
+
+
+
+
+
+<div class="child">
+    
+<table>
+    <h1> Delete car Field by id</h1>
+
+    <div class ="parentDivOrder"> 
+        <div class="child"> Id Of Car <input type="number" #IdOfCarType1> </div>
+        <div class="child"> Field id <input type="number" #FieldId> </div>
+    </div>
+
+    <br>
+    
+    <div class="buttonCenter">
+        <button (click)="deleteCarFromCarField(IdOfCarType1.value,FieldId.value)"> Delete car Fileds </button>
+        </div>
+    
+        <h3>{{delFieldMessage}}</h3>
+
+    <h1> Delete car type by id</h1>
+
+<div class ="parentDivOrder"> 
+    <div class="child"> Id Of Car <input type="number" #IdOfCarType> </div>
+</div>
+
+<br>
+
+<div class="buttonCenter">
+    <button (click)="deleteCarFromCarType(IdOfCarType.value)"> Delete car type </button>
+    </div>
+
+    <h3>{{delTypeMessage}}</h3>
+
+</table>
+
+<table>
+<h1> update car type by id of car</h1>
+
+<div class ="parentDivOrder"> 
+
+    <div class="child"> Id Of Car <input type="number" min="1" #idOfCar2>
+         <button type="search" (click)="getCarsbyIdofcar(idOfCar2.value)">search </button> </div>
+         <div *ngFor="let i of carTypeList">
+    <div class="child"> Manufacture Name  <input type="text" value="{{i.manufactureName}}" #ManufactureName2> </div>
+    <div class="child"> Car Model <input type="text" value="{{i.carModel}}" #carModel2 > </div>
+    <div class="child"> Daily Cost <input type="number" min="0" value="{{i.dailyCost}}" #dailyCost2> </div>
+    <div class="child"> Daily Delay Cost <input type="number" value="{{i.dailyDelayCost}}" #dailyDelayCost2> </div>
+    <div class="child"> Year Of Production <input type="number" min="2015"value={{i.yearOfProduction}} #yearOfProduction2> </div>
+    <div class="child"> Gear <input type="text"value="{{i.gear}}" #gearOfCar2 > </div>
+   
+
+    <div class="buttonCenter"> 
+         <button #updateCartype (click)="UpdarCarType(idOfCar2.value,ManufactureName2.value,carModel2.value,dailyCost2.value,dailyDelayCost2.value,yearOfProduction2.value,gearOfCar2.value)" >click to update</button> 
+    </div>
+    </div>
+    </div>
+
+    <br>
+    <h3>{{updateCartypeMess}}</h3>               
+    <br>
+
+</table>
+
+
+</div>
+
